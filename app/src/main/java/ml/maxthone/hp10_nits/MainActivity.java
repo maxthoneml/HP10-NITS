@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +22,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
 
+import ml.maxthone.hp10_nits.Admin.AdminDashActivity;
+import ml.maxthone.hp10_nits.Collector.CollectorDashActivity;
 import ml.maxthone.hp10_nits.Models.ModelUser;
+import ml.maxthone.hp10_nits.User.UserDashActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "User Logged in successfully", Toast.LENGTH_SHORT).show();
             validateUserType();
         }).addOnFailureListener(e -> {
-            Toast.makeText(this, "Unable to log in user.", Toast.LENGTH_SHORT).show();
             Log.e("LOGIN ERROR",e.getMessage());
             pd.dismiss();
         });
@@ -87,7 +90,23 @@ public class MainActivity extends AppCompatActivity {
         db.collection("users").document(uid).get().addOnSuccessListener(documentSnapshot -> {
             if(documentSnapshot.exists()){
                 ModelUser user = documentSnapshot.toObject(ModelUser.class);
+                if(user == null){
+                    Toast.makeText(this, "Unable to fetch user data", Toast.LENGTH_SHORT).show();
+                    auth.signOut();
+                    pd.dismiss();
+                    return;
+                }
                 Toast.makeText(this, "User name :- "+user.getName(), Toast.LENGTH_SHORT).show();
+                String role = user.getRole();
+                pd.dismiss();
+                if(role.equalsIgnoreCase("admin")){
+                    startActivity(new Intent(this, AdminDashActivity.class));
+                }else if(role.equalsIgnoreCase("collector")){
+                    startActivity(new Intent(this, CollectorDashActivity.class));
+                }else{
+                    startActivity(new Intent(this, UserDashActivity.class));
+                }
+                finish();
             }else{
                 Toast.makeText(MainActivity.this, "Error to get user data.", Toast.LENGTH_SHORT).show();
                 //sign out user
@@ -97,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         }).addOnFailureListener(e -> {
             Toast.makeText(MainActivity.this, "Error to get user data.", Toast.LENGTH_SHORT).show();
             //sign out user
+            Log.e("AUTH_ERROR", e.toString());
             auth.signOut();
             pd.dismiss();
         });
