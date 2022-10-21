@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "624568393113",
+    "project_id": "hp10-nits",
+    "storage_bucket": "hp10-nits.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624568393113:android:e23c8c95680fde44770708",
+        "android_client_info": {
+          "package_name": "ml.maxthone.hp10_nits"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "624568393113-rdg898j92i1pv1toc32tna3rre6b5bns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5LBQjjOfN8bbY8ajAbadq1O0r8K-SNlE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "624568393113-rdg898j92i1pv1toc32tna3rre6b5bns.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
