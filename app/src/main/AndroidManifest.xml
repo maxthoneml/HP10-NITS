@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,9 +15,16 @@
         android:theme="@style/Theme.HP10NITS"
         tools:targetApi="31">
         <activity
-            android:name=".Admin.UserDetailsActivity"
-            android:theme="@style/Theme.HP10NITS.NoActionBar"
+            android:name=".pickUpForm"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Admin.UserDetailsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HP10NITS.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
