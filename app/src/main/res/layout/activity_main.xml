@@ -6,140 +6,227 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="370dp"
+        android:layout_height="650dp"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.609"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.493">
 
-        <LinearLayout
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minWidth="100dp"
-            android:minHeight="100dp"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="40dp"
-                android:text="Log In"
-                android:textSize="40sp"
-                android:textStyle="bold" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="5dp"
-                android:orientation="vertical">
+                android:layout_marginTop="40dp"
+                android:minWidth="100dp"
+                android:minHeight="100dp"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:paddingTop="30dp">
 
-                <EditText
-                    android:id="@+id/login_email"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter Your Email"
-                    android:inputType="textEmailAddress" />
+                    android:layout_height="150dp"
+                    android:layout_marginTop="-20dp"
+                    android:layout_marginBottom="20dp"
 
-                <TextView
-                    android:id="@+id/login_email_error_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:padding="5dp"
-                    android:text="Enter Email"
-                    android:textColor="@android:color/holo_red_light"
-                    android:textStyle="bold"
-                    android:visibility="invisible" />
-            </LinearLayout>
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="30dp"
-                android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="40dp"
+                        android:paddingTop="-50dp"
+                        android:paddingBottom="10dp"
+                        android:text="Log In"
+                        android:textColor="#30c346"
+                        android:textSize="50sp"
+                        android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/login_password"
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/img2"
+
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter Your Password"
-                    android:inputType="textPassword" />
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical"
+                    >
 
-                <TextView
-                    android:id="@+id/login_password_error_text"
+                    <EditText
+                        android:id="@+id/login_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:background="@drawable/input_bg"
+                        android:drawablePadding="10dp"
+                        android:ems="10"
+                        android:hint="Enter Your Email"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="10dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                    <TextView
+                        android:id="@+id/login_email_error_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Enter Email"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textStyle="bold"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="Enter Password"
-                    android:textColor="@android:color/holo_red_light"
-                    android:textStyle="bold"
-                    android:visibility="invisible" />
-            </LinearLayout>
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:orientation="vertical"
+                    android:id="@+id/passwordSignIn">
 
+                    <EditText
+                        android:id="@+id/login_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:background="@drawable/input_bg"
+                        android:drawablePadding="10dp"
+                        android:ems="10"
+                        android:hint="Enter Your Password"
+                        android:inputType="textPassword"
+                        android:paddingStart="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="#808080"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView"
 
-            <TextView
-                android:id="@+id/login_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_background_login"
-                android:gravity="center"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="Log in"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                        />
 
+                    <TextView
+                        android:id="@+id/login_password_error_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Enter Password"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textStyle="bold"
+                        android:visibility="invisible" />
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/google_sign_in_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/button_background_login"
-                android:gravity="center"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="Sign in with google"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="15dp"
-                android:gravity="center">
 
                 <TextView
+                    android:id="@+id/forgotPassword"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="First Time here? "
-                    android:textSize="16sp" />
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="-22dp"
+                    android:text="Forgot Password?"
+                    android:textColor="#808080"
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic" />
 
                 <TextView
-                    android:id="@+id/sign_up_nav"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/login_btn"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=" Sign Up."
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="16sp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/button_background_login"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="Log in"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
 
                     />
 
-            </LinearLayout>
 
-        </LinearLayout>
-    </ScrollView>
+                <TextView
+                    android:id="@+id/google_sign_in_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/button_background_login"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="Sign in with google"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="First Time here? "
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/sign_up_nav"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Sign Up."
+                        android:textColor="#30c346"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
