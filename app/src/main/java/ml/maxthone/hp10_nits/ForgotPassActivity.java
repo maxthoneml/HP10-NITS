@@ -8,7 +8,7 @@ import android.widget.ImageView;
 
 public class ForgotPassActivity extends AppCompatActivity {
 
-    ImageView backBtn;
+    private ImageView backBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

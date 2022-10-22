@@ -78,7 +78,8 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="5dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    >
 
                     <EditText
                         android:id="@+id/login_email"
@@ -117,7 +118,8 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="30dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/passwordSignIn">
 
                     <EditText
                         android:id="@+id/login_password"
@@ -155,6 +157,17 @@
 
 
                 <TextView
+                    android:id="@+id/forgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="-22dp"
+                    android:text="Forgot Password?"
+                    android:textColor="#808080"
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic" />
+
+                <TextView
                     android:id="@+id/login_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -165,6 +178,7 @@
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
                     android:text="Log in"
+                    android:layout_marginTop="20dp"
                     android:textColor="@color/white"
                     android:textSize="22sp"
                     android:textStyle="bold"
@@ -208,7 +222,7 @@
                         android:layout_height="wrap_content"
                         android:onClick="signUpNavigate"
                         android:text=" Sign Up."
-                        android:textColor="@android:color/holo_blue_dark"
+                        android:textColor="#30c346"
                         android:textSize="16sp" />
 
                 </LinearLayout>

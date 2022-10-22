@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText emailInput, passwordInput;
     private TextView loginBtn, signUpBtn, googleBtn;
     private ProgressDialog pd;
+    private TextView forgotpass;
 
     private FirebaseAuth auth;
     private FirebaseFirestore db;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         emailInput = findViewById(R.id.login_email);
         passwordInput = findViewById(R.id.login_password);
         signUpBtn = findViewById(R.id.sign_up_nav);
+        forgotpass = findViewById(R.id.forgotPassword);
 
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -68,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this,SignUpActivity.class);
             startActivity(intent);
         });
+
+        forgotpass.setOnClickListener(v->{
+            Intent intent = new Intent(this,ForgotPassActivity.class);
+            startActivity(intent);
+        });
+
 
     }
 
