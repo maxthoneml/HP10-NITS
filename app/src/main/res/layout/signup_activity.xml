@@ -71,37 +71,26 @@
         app:layout_constraintTop_toBottomOf="@+id/usernameInput" />
 
 
-    <TextView
-        android:id="@+id/forgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="Forgot Password?"
-        android:textColor="#808080"
-        android:textSize="18sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/passwordSignUp"
-        app:layout_constraintTop_toBottomOf="@+id/passwordSignUp" />
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signUpButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/button_background_login"
         android:text="SIGN UP"
-        android:textSize="20sp"
         android:textColor="#ffff"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordSignUp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="26dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:textAlignment="center"
@@ -114,16 +103,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingRight="5dp"
-            android:text="Don't have an account?"
+            android:text="Already have an account?"
             android:textColor="#808080"
             android:textSize="20sp"
             android:textStyle="bold|italic" />
 
         <TextView
-            android:id="@+id/signUpLink"
+            android:id="@+id/signInLink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SIGN UP"
+            android:text="SIGN IN"
             android:textColor="#30c346"
             android:textSize="20sp"
             android:textStyle="bold|italic" />
