@@ -9,53 +9,58 @@
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:background="#6FB554"
-        android:backgroundTint="#6FB554"
+        android:background="@drawable/signuptopblock"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063">
 
         <TextView
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="match_parent"
+            android:id="@+id/signUpModule"
+            android:layout_width="350dp"
             android:layout_height="118dp"
             android:layout_weight="0"
-            android:paddingTop="50dp"
+            android:paddingTop="30dp"
             android:text="Sign Up"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="24sp"
+            android:textSize="40sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/usernameInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="50dp"
+        android:background="@drawable/input_bg"
         android:ems="10"
         android:hint="username"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/passwordSignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="50dp"
+        android:background="@drawable/input_bg"
         android:ems="10"
         android:hint="password"
         android:inputType="textPersonName"
@@ -63,22 +68,64 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameInput" />
 
 
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Forgot Password?"
+        android:textColor="#808080"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="@+id/passwordSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/passwordSignUp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button"
+        android:id="@+id/signUpButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="50dp"
-        android:background="#6FB554"
-        android:backgroundTint="#6FB554"
+        android:background="@drawable/button_background_login"
+        android:text="SIGN UP"
+        android:textSize="20sp"
         android:textColor="#ffff"
-        android:text="SIGN IN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordSignUp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/signUpButton"
+        app:layout_constraintStart_toStartOf="@+id/signUpButton"
+        app:layout_constraintTop_toBottomOf="@+id/signUpButton">
+
+        <TextView
+            android:id="@+id/dontHaveAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="5dp"
+            android:text="Don't have an account?"
+            android:textColor="#808080"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/signUpLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SIGN UP"
+            android:textColor="#30c346"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
