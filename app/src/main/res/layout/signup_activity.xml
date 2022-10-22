@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#BCB0D6"
@@ -66,7 +65,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
 
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
         android:layout_width="0dp"
@@ -76,8 +74,8 @@
         android:layout_marginEnd="50dp"
         android:background="#6FB554"
         android:backgroundTint="#6FB554"
-        android:textColor="#ffff"
         android:text="SIGN IN"
+        android:textColor="#ffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />

@@ -1,8 +1,8 @@
 package ml.maxthone.hp10_nits.User;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import ml.maxthone.hp10_nits.R;
 

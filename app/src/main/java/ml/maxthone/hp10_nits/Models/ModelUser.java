@@ -2,17 +2,19 @@ package ml.maxthone.hp10_nits.Models;
 
 public class ModelUser {
     private String uid, email, name, phone, role, profileImage;
+    private boolean active;
 
     public ModelUser() {
     }
 
-    public ModelUser(String uid, String email, String name, String phone, String role, String profileImage) {
+    public ModelUser(String uid, String email, String name, String phone, String role, String profileImage, boolean active) {
         this.uid = uid;
         this.email = email;
         this.name = name;
         this.phone = phone;
         this.role = role;
         this.profileImage = profileImage;
+        this.active = active;
     }
 
     public String getUid() {
@@ -61,5 +63,13 @@ public class ModelUser {
 
     public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
