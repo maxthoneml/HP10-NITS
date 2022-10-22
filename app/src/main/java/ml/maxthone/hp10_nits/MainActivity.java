@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         emailInput = findViewById(R.id.login_email);
         passwordInput = findViewById(R.id.login_password);
+        signUpBtn = findViewById(R.id.sign_up_nav);
 
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -61,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         loginBtn.setOnClickListener(v -> loginUser());
+        signUpBtn.setOnClickListener(v-> {
+            Intent intent = new Intent(this,SignUpActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void loginUser(){
