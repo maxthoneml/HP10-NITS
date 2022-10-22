@@ -96,6 +96,10 @@ public class MainActivity extends AppCompatActivity {
             if(documentSnapshot.exists()){
                 ModelUser user = documentSnapshot.toObject(ModelUser.class);
                 Toast.makeText(this, "User name :- "+user.getName(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(this,DashboardActivity.class);
+                intent.putExtra("role",user.getRole());
+                startActivity(intent);
             }else{
                 Toast.makeText(MainActivity.this, "Error to get user data.", Toast.LENGTH_SHORT).show();
                 //sign out user
