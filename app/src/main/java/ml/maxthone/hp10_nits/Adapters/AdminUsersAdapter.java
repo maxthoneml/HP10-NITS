@@ -2,6 +2,7 @@ package ml.maxthone.hp10_nits.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,11 @@ public class AdminUsersAdapter extends RecyclerView.Adapter<AdminUsersAdapter.Vi
             role.setText(user.getRole());
             if(!user.getProfileImage().equalsIgnoreCase("default")){
                 Glide.with(context).load(user.getProfileImage()).into(profileImage);
+            }
+            if(!user.isActive()){
+                name.setTextColor(Color.rgb(255,0,0));
+                role.setTextColor(Color.rgb(255,0,0));
+                role.setText(role.getText() + " (Disabled account)");
             }
             itemView.setOnClickListener(view -> {
                 Intent i =  new Intent(context, UserDetailsActivity.class);

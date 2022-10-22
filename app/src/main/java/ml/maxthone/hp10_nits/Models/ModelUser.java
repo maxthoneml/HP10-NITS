@@ -1,5 +1,8 @@
 package ml.maxthone.hp10_nits.Models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ModelUser {
     private String uid, email, name, phone, role, profileImage;
     private boolean active;
@@ -15,6 +18,17 @@ public class ModelUser {
         this.role = role;
         this.profileImage = profileImage;
         this.active = active;
+    }
+
+    public Map<String, Object> toMap() {
+        HashMap<String , Object> data = new HashMap<>();
+        data.put("name", name);
+        data.put("email", email);
+        data.put("phone", phone);
+        data.put("role", role);
+        data.put("active", active);
+        data.put("profileImage", profileImage);
+        return data;
     }
 
     public String getUid() {
@@ -72,4 +86,5 @@ public class ModelUser {
     public void setActive(boolean active) {
         this.active = active;
     }
+
 }

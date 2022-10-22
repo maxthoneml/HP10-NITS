@@ -1,9 +1,12 @@
 package ml.maxthone.hp10_nits;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,11 +19,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.Objects;
 
+import ml.maxthone.hp10_nits.Admin.AdminDashActivity;
 import ml.maxthone.hp10_nits.Models.ModelUser;
+import ml.maxthone.hp10_nits.User.UserDashActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -96,50 +103,59 @@ public class MainActivity extends AppCompatActivity {
     private void validateUserType() {
         pd.setMessage("Validating your data");
         String uid = Objects.requireNonNull(auth.getCurrentUser()).getUid();
-        db.collection("users").document(uid).get().addOnSuccessListener(documentSnapshot -> {
-            if (documentSnapshot.exists()) {
-                ModelUser user = documentSnapshot.toObject(ModelUser.class);
-                if (user == null) {
-                    Toast.makeText(this, "Unable to fetch user data", Toast.LENGTH_SHORT).show();
-                    auth.signOut();
-                    pd.dismiss();
-                    return;
-                }
-                Toast.makeText(this, "User name :- " + user.getName(), Toast.LENGTH_SHORT).show();
-                String role = user.getRole();
-                pd.dismiss();
-                if (role.equalsIgnoreCase("admin")) {
-                    startActivity(new Intent(this, AdminDashActivity.class));
-//                }else if(role.equalsIgnoreCase("collector")){
-//                    if(user.isActive()) {
-//                        startActivity(new Intent(this, CollectorDashActivity.class));
-//                    }else{
-//                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-//                        alert.setTitle("Login Error")
-//                                .setMessage("Your account has not been accepted by admin. Please contact admin to activate now.")
-//                                .setCancelable(false)
-//                                .setPositiveButton("OK", (dialog, which) -> {
-//                                    auth.signOut();
-//                                    pd.dismiss();
-//                                    dialog.dismiss();
-//                                }).show();
-//                    }
-                } else {
-                    startActivity(new Intent(this, UserDashActivity.class));
-                }
-                finish();
-            } else {
+        db.collection("users").document(uid).addSnapshotListener((documentSnapshot, error) -> {
+            if(error!=null){
                 Toast.makeText(MainActivity.this, "Error to get user data.", Toast.LENGTH_SHORT).show();
                 //sign out user
+                Log.e("AUTH_ERROR", error.toString());
+                auth.signOut();
+                pd.dismiss();
+                return;
+            }
+            try{
+                assert documentSnapshot != null;
+                if (documentSnapshot.exists()) {
+                    ModelUser user = documentSnapshot.toObject(ModelUser.class);
+                    if (user == null) {
+                        Toast.makeText(this, "Unable to fetch user data", Toast.LENGTH_SHORT).show();
+                        auth.signOut();
+                        pd.dismiss();
+                        return;
+                    }
+                    Toast.makeText(this, "User name :- " + user.getName(), Toast.LENGTH_SHORT).show();
+                    String role = user.getRole();
+                    pd.dismiss();
+                    if (!user.isActive()) {
+                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                        alert.setTitle("Login Error")
+                                .setMessage("Your account has been disabled by admin. Please contact admin to activate now.")
+                                .setCancelable(false)
+                                .setPositiveButton("OK", (dialog, which) -> {
+                                    auth.signOut();
+                                    pd.dismiss();
+                                    dialog.dismiss();
+                                }).show();
+                        return;
+                    }
+                    if (role.equalsIgnoreCase("admin")) {
+                        startActivity(new Intent(this, AdminDashActivity.class));
+                    } else {
+                        startActivity(new Intent(this, UserDashActivity.class));
+                    }
+                    finish();
+                } else {
+                    Toast.makeText(MainActivity.this, "Error to get user data.", Toast.LENGTH_SHORT).show();
+                    //sign out user
+                    auth.signOut();
+                    pd.dismiss();
+                }
+            }catch(Exception e){
+                Toast.makeText(MainActivity.this, "Error to get user data.", Toast.LENGTH_SHORT).show();
+                //sign out user
+                Log.e("AUTH_ERROR", e.toString());
                 auth.signOut();
                 pd.dismiss();
             }
-        }).addOnFailureListener(e -> {
-            Toast.makeText(MainActivity.this, "Error to get user data.", Toast.LENGTH_SHORT).show();
-            //sign out user
-            Log.e("AUTH_ERROR", e.toString());
-            auth.signOut();
-            pd.dismiss();
         });
     }
 

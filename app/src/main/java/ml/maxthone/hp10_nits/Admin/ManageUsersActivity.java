@@ -77,7 +77,7 @@ public class ManageUsersActivity extends AppCompatActivity {
         pd.setCancelable(false);
 
         pd.show();
-        db.collection("users").addSnapshotListener((value, error) -> {
+        db.collection("users").orderBy("role").addSnapshotListener((value, error) -> {
             try {
                 if (error != null) {
                     Toast.makeText(this, "Error while fetching user data.", Toast.LENGTH_SHORT).show();
